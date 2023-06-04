@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentOne">
+
+    <fragment
+        android:id="@+id/fragmentOne"
+        android:name="com.example.safeargs_vs_bundle.FragmentOne"
+        android:label="fragment_one"
+        tools:layout="@layout/fragment_one"/>
+        <action
+            android:id="@+id/action_fragmentOne_to_fragmentTwo"
+            app:destination="@+id/fragmentTwo"
+            />
+
+    <fragment
+        android:id="@+id/fragmentTwo"
+        android:name="com.example.safeargs_vs_bundle.FragmentTwo"
+        android:label="fragment_two"
+        tools:layout="@layout/fragment_two">
+        <action
+            android:id="@+id/action_fragmentTwo_to_fragmentThree"
+            app:destination="@id/fragmentThree" />
+        <argument
+            android:name="MyArg"
+            app:argType="string"
+            android:defaultValue="Default" />
+    </fragment>
+        <argument
+            android:name="MyArg"
+            android:defaultValue="Default"/>
+
+    <fragment
+        android:id="@+id/fragmentThree"
+        android:name="com.example.safeargs_vs_bundle.FragmentThree"
+        android:label="fragment_three"
+        tools:layout="@layout/fragment_three" >
+        <action
+            android:id="@+id/action_fragmentThree_to_fragmentFour"
+            app:destination="@id/fragmentFour" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentFour"
+        android:name="com.example.safeargs_vs_bundle.FragmentFour"
+        android:label="fragment_four"
+        tools:layout="@layout/fragment_four">
+        <argument
+            android:name="MyArg2"
+            android:defaultValue="Default"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity2"
+        android:name="com.example.safeargs_vs_bundle.MainActivity2"
+        android:label="activity_main2"
+        tools:layout="@layout/activity_main2" />
+</navigation>
